@@ -10,7 +10,7 @@ def covid_data(state):
     dat = []
     for item in response:
         dat.append((state, item['county'], item['population'], item['metrics']['caseDensity'], item['riskLevels']['overall']))
-        return dat
+    return dat
 
 
 def fill_database(data, cur, conn, cur2, conn2):
@@ -18,7 +18,7 @@ def fill_database(data, cur, conn, cur2, conn2):
         for tup in data:
             cur.execute("SELECT id FROM covid_state_data WHERE state = ?", (tup[0],))
             x = cur.fetchone()[0]
-            cur2.execute("INSERT OR IGNORE INTO covid_Data (state, county, population, caseDensity, riskLevel) VALUES (?,?,?,?,?)", (x, tup[1], tup[2], tup[3], tup[4]))
+            cur2.execute("INSERT OR IGNORE INTO covid_Data (state_id, county, population, caseDensity, riskLevel) VALUES (?,?,?,?,?)", (x, tup[1], tup[2], tup[3], tup[4]))
             conn.commit()
             conn2.commit()
         print("Successfully added")
@@ -29,7 +29,7 @@ def new_database():
     path = os.path.dirname(os.path.abspath(__file__))
     conn = sqlite3.connect(path+'/'+ 'yelpxespn.db')
     cur = conn.cursor()
-    cur.execute("CREATE TABLE IF NOT EXISTS covid_Data (id INTEGER PRIMARY KEY, state TEXT, county TEXT, population INTEGER, caseDensity FLOAT, riskLevel INTEGER)")
+    cur.execute("CREATE TABLE IF NOT EXISTS covid_Data (id INTEGER PRIMARY KEY, state_id INTEGER, county TEXT, population INTEGER, caseDensity FLOAT, riskLevel INTEGER)")
     conn.commit()
     return cur, conn
 def covid_state_database():
@@ -38,14 +38,16 @@ def covid_state_database():
     cur = conn.cursor()
     cur.execute("CREATE TABLE IF NOT EXISTS covid_state_data (id INTEGER PRIMARY KEY, state TEXT)")
     cur.execute("INSERT OR IGNORE INTO covid_state_data VALUES(?,?)",(1,'CO'))
-    cur.execute("INSERT OR IGNORE INTO covid_state_data VALUES(?,?)",(2,'FL'))
+    cur.execute("INSERT OR IGNORE INTO covid_state_data VALUES(?,?)",(1, 'FL'))
     conn.commit()
     return cur, conn
 
 state_cur, state_conn = covid_state_database()
 data_cur, data_conn = new_database()
-fill_database(covid_data('CO'), state_cur, state_conn, data_cur, data_conn)
-fill_database(covid_data('FL'), state_cur, state_conn, data_cur, data_conn)
+fill_database(covid_data('CO')[:25], state_cur, state_conn, data_cur, data_conn)
+fill_database(covid_data('FL')[:25], state_cur, state_conn, data_cur, data_conn)
+fill_database(covid_data('CO')[25:50], state_cur, state_conn, data_cur, data_conn)
+fill_database(covid_data('FL')[25:50], state_cur, state_conn, data_cur, data_conn)
 
 
 
