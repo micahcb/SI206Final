@@ -49,8 +49,8 @@ def city_database():
     conn = sqlite3.connect(path+'/'+ 'yelpxespn.db')
     cur = conn.cursor()
     cur.execute("CREATE TABLE IF NOT EXISTS City_id (id INTEGER PRIMARY KEY, city TEXT)")
-    cur.execute("INSERT INTO City_id VALUES(?,?)",(1,'Boulder'))
-    cur.execute("INSERT INTO City_id VALUES(?,?)",(2,'Miami'))
+    cur.execute("INSERT OR IGNORE INTO City_id VALUES(?,?)",(1,'Boulder'))
+    cur.execute("INSERT OR IGNORE INTO City_id VALUES(?,?)",(2,'Miami'))
     conn.commit()
     return cur, conn
 
