@@ -7,21 +7,18 @@ api_key = 'dL9sPP12tM--3gqK0Z7MZ-gIaRf88oj0HrdIcrxgO7t0P1ncXJ4j99dm5NlriAbPu4viW
 def yelp_data(api_key, city, cur, conn):
     b_url = "https://api.yelp.com/v3/businesses/search"
     headers = {"Authorization" : "Bearer %s" % api_key}
-    '''
     cur.execute("SELECT MAX (id) from Yelp_Data")
     x = cur.fetchone()[0]
     if x == None:
         x = 0
     else:
         x += 25
-        attempt to get 25.
-        Note: can not take from yelp api more than 50 at a time
-    '''
-    params = {'term': 'bar', 'location': city, 'sort_by': 'rating', 'limit': 50,}
+    params = {'term': 'bar', 'location': city, 'sort_by': 'rating', 'limit': 25, 'offset':x}
     request = requests.get(b_url, headers = headers, params = params)
     response = json.loads(request.text)
+    response = response["businesses"]
     dat = []
-    for item in response['businesses']:
+    for item in response:
         if item['id'] not in dat and 'price' in item.keys():
             dat.append((item['name'], item['price'], item['rating'], city))
     return dat
@@ -59,7 +56,5 @@ def city_database():
 
 city_cur, city_conn = city_database()
 data_cur, data_conn = new_database()
-fill_database(yelp_data(api_key, 'Boulder', data_cur, data_conn)[:25], city_cur, city_conn, data_cur, data_conn)
-fill_database(yelp_data(api_key, 'Miami', data_cur, data_conn)[25:50], city_cur, city_conn, data_cur, data_conn)
-fill_database(yelp_data(api_key, 'Boulder', data_cur, data_conn)[:25], city_cur, city_conn, data_cur, data_conn)
-fill_database(yelp_data(api_key, 'Miami', data_cur, data_conn)[25:50], city_cur, city_conn, data_cur, data_conn)
+fill_database(yelp_data(api_key, 'Boulder', data_cur, data_conn), city_cur, city_conn, data_cur, data_conn)
+fill_database(yelp_data(api_key, 'Miami', data_cur, data_conn), city_cur, city_conn, data_cur, data_conn)

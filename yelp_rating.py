@@ -48,10 +48,11 @@ def make_graph(tup):
     x = ['Boulder', 'Miami']
     y = [bou_ave, mia_ave]
 
-    plt.bar(x, y, color = 'blue')
+    plt.bar(x, y, color = 'green')
     plt.xlabel("City Name")
     plt.ylabel("Average Bar Rating")
     plt.title("Average Bar Ratings for Boulder,CO and Miami, FL")
+    plt.show()
 
 d = get_restaurant_data('yelpXcovid.db')
 make_graph(d)
