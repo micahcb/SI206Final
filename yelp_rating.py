@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import os
 import sqlite3
 import unittest
+import csv
 
 def get_restaurant_data(db_filename):
     """
@@ -17,16 +18,22 @@ def get_restaurant_data(db_filename):
     cur = conn.cursor()
     cur.execute("SELECT * FROM Yelp_Data")
     all_of = cur.fetchall()
-    return all_of
+    for restaurant in all_of:
+        dic = {}
+        dic['name'] = restaurant[1]
+        dic['rating'] = restaurant[3]
+        dic['city'] = restaurant[4]
+        ls.append(dic)
+    return ls
 
-def make_graph(tup):
+def make_graph(dic):
     mia_ls = []
     bou_ls = []
-    for i in tup:
-        if i[4] == 1:
-            bou_ls.append(i[3])
+    for i in dic:
+        if i['city'] == 1:
+            bou_ls.append(i['rating'])
         else:
-            mia_ls.append(i[3])
+            mia_ls.append(i['rating'])
     mia_tot = len(mia_ls)
     bou_tot = len(bou_ls)
     mia_ave = 0
@@ -35,12 +42,16 @@ def make_graph(tup):
         bou_ave += i
     for i in mia_ls:
         mia_ave += i
-
-
     mia_ave = mia_ave / mia_tot
     bou_ave = bou_ave / bou_tot
     x = ['Boulder', 'Miami']
     y = [bou_ave, mia_ave]
+    with open('yelp_rating.csv', 'w', newline='', ) as csvfile:
+        fieldnames = ['name', 'rating', 'city']
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer.writeheader()
+        for county_num in dic:
+            writer.writerow(county_num)
     return x,y
 
 
