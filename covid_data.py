@@ -27,18 +27,18 @@ def fill_database(data, cur, conn, cur2, conn2):
 
 def new_database(): 
     path = os.path.dirname(os.path.abspath(__file__))
-    conn = sqlite3.connect(path+'/'+ 'yelpxespn.db')
+    conn = sqlite3.connect(path+'/'+ 'yelpXcovid.db')
     cur = conn.cursor()
     cur.execute("CREATE TABLE IF NOT EXISTS covid_Data (id INTEGER PRIMARY KEY, state_id INTEGER, county TEXT, population INTEGER, caseDensity FLOAT, riskLevel INTEGER)")
     conn.commit()
     return cur, conn
 def covid_state_database():
     path = os.path.dirname(os.path.abspath(__file__))
-    conn = sqlite3.connect(path+'/'+ 'yelpxespn.db')
+    conn = sqlite3.connect(path+'/'+ 'yelpXcovid.db')
     cur = conn.cursor()
     cur.execute("CREATE TABLE IF NOT EXISTS covid_state_data (id INTEGER PRIMARY KEY, state TEXT)")
     cur.execute("INSERT OR IGNORE INTO covid_state_data VALUES(?,?)",(1,'CO'))
-    cur.execute("INSERT OR IGNORE INTO covid_state_data VALUES(?,?)",(1, 'FL'))
+    cur.execute("INSERT OR IGNORE INTO covid_state_data VALUES(?,?)",(2, 'FL'))
     conn.commit()
     return cur, conn
 

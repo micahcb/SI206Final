@@ -7,18 +7,21 @@ api_key = 'dL9sPP12tM--3gqK0Z7MZ-gIaRf88oj0HrdIcrxgO7t0P1ncXJ4j99dm5NlriAbPu4viW
 def yelp_data(api_key, city, cur, conn):
     b_url = "https://api.yelp.com/v3/businesses/search"
     headers = {"Authorization" : "Bearer %s" % api_key}
+    '''
     cur.execute("SELECT MAX (id) from Yelp_Data")
     x = cur.fetchone()[0]
     if x == None:
         x = 0
     else:
         x += 25
-    params = {'term': 'bar', 'location': city, 'sort_by': 'rating', 'limit': x,}
+        attempt to get 25.
+        Note: can not take from yelp api more than 50 at a time
+    '''
+    params = {'term': 'bar', 'location': city, 'sort_by': 'rating', 'limit': 50,}
     request = requests.get(b_url, headers = headers, params = params)
     response = json.loads(request.text)
-    response = response["businesses"][x-25:]
     dat = []
-    for item in response:
+    for item in response['businesses']:
         if item['id'] not in dat and 'price' in item.keys():
             dat.append((item['name'], item['price'], item['rating'], city))
     return dat
@@ -38,7 +41,7 @@ def fill_database(data, cur, conn, cur2, conn2):
 
 def new_database(): 
     path = os.path.dirname(os.path.abspath(__file__))
-    conn = sqlite3.connect(path+'/'+ 'yelpxespn.db')
+    conn = sqlite3.connect(path+'/'+ 'yelpXcovid.db')
     cur = conn.cursor()
     cur.execute("CREATE TABLE IF NOT EXISTS Yelp_Data (id INTEGER PRIMARY KEY, restaurant_name TEXT, price_range TEXT, rating FLOAT, city_id INTEGER)")
     conn.commit()
@@ -46,7 +49,7 @@ def new_database():
 
 def city_database():
     path = os.path.dirname(os.path.abspath(__file__))
-    conn = sqlite3.connect(path+'/'+ 'yelpxespn.db')
+    conn = sqlite3.connect(path+'/'+ 'yelpXcovid.db')
     cur = conn.cursor()
     cur.execute("CREATE TABLE IF NOT EXISTS City_id (id INTEGER PRIMARY KEY, city TEXT)")
     cur.execute("INSERT OR IGNORE INTO City_id VALUES(?,?)",(1,'Boulder'))
@@ -56,5 +59,7 @@ def city_database():
 
 city_cur, city_conn = city_database()
 data_cur, data_conn = new_database()
-fill_database(yelp_data(api_key, 'Boulder', data_cur, data_conn), city_cur, city_conn, data_cur, data_conn)
-fill_database(yelp_data(api_key, 'Miami', data_cur, data_conn), city_cur, city_conn, data_cur, data_conn)
+fill_database(yelp_data(api_key, 'Boulder', data_cur, data_conn)[:25], city_cur, city_conn, data_cur, data_conn)
+fill_database(yelp_data(api_key, 'Miami', data_cur, data_conn)[25:50], city_cur, city_conn, data_cur, data_conn)
+fill_database(yelp_data(api_key, 'Boulder', data_cur, data_conn)[:25], city_cur, city_conn, data_cur, data_conn)
+fill_database(yelp_data(api_key, 'Miami', data_cur, data_conn)[25:50], city_cur, city_conn, data_cur, data_conn)
