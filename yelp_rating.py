@@ -17,12 +17,6 @@ def get_restaurant_data(db_filename):
     cur = conn.cursor()
     cur.execute("SELECT * FROM Yelp_Data")
     all_of = cur.fetchall()
-    for restaurant in all_of:
-        dic = {}
-        dic['name'] = restaurant[1]
-        dic['rating'] = restaurant[3]
-        dic['city'] = restaurant[4]
-        ls.append(dic)
     return all_of
 
 def make_graph(tup):
@@ -47,13 +41,14 @@ def make_graph(tup):
     bou_ave = bou_ave / bou_tot
     x = ['Boulder', 'Miami']
     y = [bou_ave, mia_ave]
+    return x,y
 
-    plt.bar(x, y, color = 'green')
-    plt.xlabel("City Name")
-    plt.ylabel("Average Bar Rating")
-    plt.title("Average Bar Ratings for Boulder,CO and Miami, FL")
-    plt.show()
 
 d = get_restaurant_data('yelpXcovid.db')
-make_graph(d)
+x,y = make_graph(d)
+plt.bar(x, y, color = 'green')
+plt.xlabel("City Name")
+plt.ylabel("Average Bar Rating")
+plt.title("Average Bar Ratings for Boulder,CO and Miami, FL")
+plt.show()
     
