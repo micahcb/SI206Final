@@ -31,7 +31,7 @@ def make_graph(dic):
     impact_ls = []
     for res in dic:
         restaurant_ls.append(res['name'])
-        impact_ls.append((res['covid_impact']) / (res['num_reviews']))
+        impact_ls.append((res['num_reviews']) / (res['covid_impact']))
     #make new dict to write to file with
     dic2 = []
     for re in dic:

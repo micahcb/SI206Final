@@ -44,11 +44,12 @@ def covid_state_database():
 
 state_cur, state_conn = covid_state_database()
 data_cur, data_conn = new_database()
-fill_database(covid_data('CO')[:25], state_cur, state_conn, data_cur, data_conn)
-fill_database(covid_data('FL')[:25], state_cur, state_conn, data_cur, data_conn)
-fill_database(covid_data('CO')[25:50], state_cur, state_conn, data_cur, data_conn)
-fill_database(covid_data('FL')[25:50], state_cur, state_conn, data_cur, data_conn)
-
+fill_database(covid_data('CO')[:20], state_cur, state_conn, data_cur, data_conn)
+fill_database(covid_data('FL')[:20], state_cur, state_conn, data_cur, data_conn)
+fill_database(covid_data('CO')[20:40], state_cur, state_conn, data_cur, data_conn)
+fill_database(covid_data('FL')[20:40], state_cur, state_conn, data_cur, data_conn)
+fill_database(covid_data('CO')[40:50], state_cur, state_conn, data_cur, data_conn)
+fill_database(covid_data('FL')[40:50], state_cur, state_conn, data_cur, data_conn)
 
 
 

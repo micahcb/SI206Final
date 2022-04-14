@@ -12,8 +12,8 @@ def yelp_data(api_key, city, cur, conn):
     if x == None:
         x = 0
     else:
-        x += 25
-    params = {'term': 'bar', 'location': city, 'sort_by': 'rating', 'limit': 25, 'offset':x}
+        x += 21
+    params = {'term': 'bar', 'location': city, 'sort_by': 'rating', 'limit': 20, 'offset':x}
     request = requests.get(b_url, headers = headers, params = params)
     response = json.loads(request.text)
     response = response["businesses"]
