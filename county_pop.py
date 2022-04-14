@@ -40,6 +40,8 @@ def make_graph(dic):
 
 d = get_pop_data('yelpXcovid.db')
 x,y = make_graph(d)
+x = x[:21]
+y = y[:21]
 plt.barh(x, y, color = 'green')
 plt.xlabel("Population")
 plt.ylabel("County")

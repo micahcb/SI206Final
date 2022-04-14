@@ -22,7 +22,7 @@ def get_restaurant_data(db_filename):
         dic = {}
         dic['name'] = restaurant[1]
         dic['rating'] = restaurant[3]
-        dic['city'] = restaurant[4]
+        dic['city'] = restaurant[5]
         ls.append(dic)
     return ls
 
