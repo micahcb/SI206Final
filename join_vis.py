@@ -7,11 +7,6 @@ import unittest
 import csv
 
 def get_pop_data(db_filename):
-    """
-    This function accepts the file name of a database as a parameter and returns a list of
-    dictionaries. The key:value pairs should be the name, category, building, and rating
-    of each restaurant in the database.
-    """
     ls = []
     path = os.path.dirname(os.path.abspath(__file__))
     conn = sqlite3.connect(path+'/'+db_filename)
