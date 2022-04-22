@@ -19,11 +19,6 @@ Denver County,727211
 Dolores County,2055
 Douglas County,351154
 Eagle County,55127
-Elbert County,26729
-El Paso County,720403
-Fremont County,47839
-Garfield County,60061
-Gilpin County,6243
 Alachua County,269043
 Baker County,29210
 Bay County,174705
@@ -44,11 +39,11 @@ Flagler County,115081
 Franklin County,12125
 Gadsden County,45660
 Gilchrist County,18582
-Glades County,13811
-Gulf County,13639
-Hamilton County,14428
-Hardee County,26937
-Hendry County,42022
+Elbert County,26729
+El Paso County,720403
+Fremont County,47839
+Garfield County,60061
+Gilpin County,6243
 Grand County,15734
 Gunnison County,17462
 Hinsdale County,820
@@ -64,16 +59,11 @@ Las Animas County,14506
 Lincoln County,5701
 Logan County,22409
 Mesa County,154210
-Mineral County,769
-Moffat County,13283
-Montezuma County,26183
-Montrose County,42758
-Morgan County,29068
-Otero County,18278
-Ouray County,4952
-Park County,18845
-Phillips County,4265
-Pitkin County,17767
+Glades County,13811
+Gulf County,13639
+Hamilton County,14428
+Hardee County,26937
+Hendry County,42022
 Hernando County,193920
 Highlands County,106221
 Hillsborough County,1471968
@@ -89,6 +79,16 @@ Levy County,41503
 Liberty County,8354
 Madison County,18493
 Manatee County,403253
+Mineral County,769
+Moffat County,13283
+Montezuma County,26183
+Montrose County,42758
+Morgan County,29068
+Otero County,18278
+Ouray County,4952
+Park County,18845
+Phillips County,4265
+Pitkin County,17767
 Marion County,365579
 Martin County,161000
 Miami-Dade County,2716940

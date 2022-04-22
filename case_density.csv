@@ -1,29 +1,24 @@
 state,county,population,case_density
-1,Adams County,517421,21.4
-1,Alamosa County,16233,6.5
-1,Arapahoe County,656590,19.6
-1,Archuleta County,14029,16.3
+1,Adams County,517421,23.8
+1,Alamosa County,16233,8.9
+1,Arapahoe County,656590,20.6
+1,Archuleta County,14029,11.2
 1,Baca County,3581,7.0
-1,Bent County,5577,20.5
-1,Boulder County,326196,24.8
-1,Broomfield County,70465,20.9
-1,Chaffee County,20356,30.3
+1,Bent County,5577,23.1
+1,Boulder County,326196,25.1
+1,Broomfield County,70465,23.9
+1,Chaffee County,20356,51.2
 1,Cheyenne County,1831,0.0
-1,Clear Creek County,9700,13.3
+1,Clear Creek County,9700,19.1
 1,Conejos County,8205,19.2
 1,Costilla County,3887,36.8
-1,Crowley County,6061,35.7
+1,Crowley County,6061,11.8
 1,Custer County,5068,19.7
-1,Delta County,31162,12.8
-1,Denver County,727211,22.4
-1,Dolores County,2055,48.7
-1,Douglas County,351154,20.5
-1,Eagle County,55127,23.6
-1,Elbert County,26729,11.8
-1,El Paso County,720403,20.4
-1,Fremont County,47839,28.9
-1,Garfield County,60061,20.7
-1,Gilpin County,6243,11.4
+1,Delta County,31162,18.7
+1,Denver County,727211,27.1
+1,Dolores County,2055,34.8
+1,Douglas County,351154,20.8
+1,Eagle County,55127,18.4
 2,Alachua County,269043,6.1
 2,Baker County,29210,1.2
 2,Bay County,174705,0.0
@@ -44,36 +39,31 @@ state,county,population,case_density
 2,Franklin County,12125,0.6
 2,Gadsden County,45660,3.0
 2,Gilchrist County,18582,1.5
+1,Elbert County,26729,12.3
+1,El Paso County,720403,19.3
+1,Fremont County,47839,18.5
+1,Garfield County,60061,20.2
+1,Gilpin County,6243,13.7
+1,Grand County,15734,22.7
+1,Gunnison County,17462,23.7
+1,Hinsdale County,820,0.0
+1,Huerfano County,6897,7.2
+1,Jackson County,1392,0.0
+1,Jefferson County,582881,31.8
+1,Kiowa County,1406,20.3
+1,Kit Carson County,7097,12.1
+1,Lake County,8127,5.3
+1,La Plata County,56221,13.0
+1,Larimer County,356899,26.4
+1,Las Animas County,14506,27.6
+1,Lincoln County,5701,16.7
+1,Logan County,22409,9.6
+1,Mesa County,154210,15.7
 2,Glades County,13811,0.5
 2,Gulf County,13639,0.5
 2,Hamilton County,14428,1.0
 2,Hardee County,26937,1.6
 2,Hendry County,42022,1.2
-1,Grand County,15734,17.3
-1,Gunnison County,17462,23.7
-1,Hinsdale County,820,0.0
-1,Huerfano County,6897,6.2
-1,Jackson County,1392,0.0
-1,Jefferson County,582881,32.0
-1,Kiowa County,1406,20.3
-1,Kit Carson County,7097,18.1
-1,Lake County,8127,5.9
-1,La Plata County,56221,13.5
-1,Larimer County,356899,27.0
-1,Las Animas County,14506,25.1
-1,Lincoln County,5701,22.1
-1,Logan County,22409,21.6
-1,Mesa County,154210,15.0
-1,Mineral County,769,29.2
-1,Moffat County,13283,9.7
-1,Montezuma County,26183,12.0
-1,Montrose County,42758,12.0
-1,Morgan County,29068,13.8
-1,Otero County,18278,4.7
-1,Ouray County,4952,6.5
-1,Park County,18845,19.0
-1,Phillips County,4265,18.4
-1,Pitkin County,17767,40.2
 2,Hernando County,193920,3.2
 2,Highlands County,106221,4.6
 2,Hillsborough County,1471968,0.0
@@ -89,6 +79,16 @@ state,county,population,case_density
 2,Liberty County,8354,1.7
 2,Madison County,18493,1.2
 2,Manatee County,403253,4.6
+1,Mineral County,769,42.5
+1,Moffat County,13283,8.6
+1,Montezuma County,26183,10.6
+1,Montrose County,42758,8.4
+1,Morgan County,29068,7.9
+1,Otero County,18278,7.8
+1,Ouray County,4952,6.7
+1,Park County,18845,12.9
+1,Phillips County,4265,20.1
+1,Pitkin County,17767,33.8
 2,Marion County,365579,3.1
 2,Martin County,161000,7.2
 2,Miami-Dade County,2716940,14.5

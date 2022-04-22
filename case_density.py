@@ -56,7 +56,7 @@ def make_graph(dic):
 
 d = get_restaurant_data('yelpXcovid.db')
 x,y = make_graph(d)
-plt.bar(x, y, color = 'green')
+plt.bar(x, y, color = 'tomato')
 plt.xlabel("State Name")
 plt.ylabel("Average Case Density Per County")
 plt.title("Average Case Density Per County For Florida and Colorado")

@@ -50,7 +50,7 @@ def make_graph(dic):
 
 d = get_pop_data('yelpXcovid.db')
 x,y = make_graph(d)
-plt.barh(x, y, color = 'green')
+plt.barh(x, y, color = 'aqua')
 plt.xlabel("Covid Impact (numreviews/covid_impact)")
 plt.ylabel("Bar Name")
 plt.title("Covid Effect On Reviews of Bars in Boulder, CO")

@@ -42,7 +42,7 @@ d = get_pop_data('yelpXcovid.db')
 x,y = make_graph(d)
 x = x[:21]
 y = y[:21]
-plt.barh(x, y, color = 'green')
+plt.barh(x, y, color = 'magenta')
 plt.xlabel("Population")
 plt.ylabel("County")
 plt.title("Population of Counties in Florida and Colorado")
